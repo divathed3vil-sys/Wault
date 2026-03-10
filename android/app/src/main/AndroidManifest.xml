@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- android/app/src/main/AndroidManifest.xml -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.diva.wault">
+
+    <!-- ── Permissions ──────────────────────────────────────────────────── -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+
+    <application
+        android:label="WAult"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:hardwareAccelerated="true"
+        android:requestLegacyExternalStorage="false"
+        android:usesCleartextTraffic="false">
+
+        <!-- ── Main Flutter Activity ──────────────────────────────────── -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/WaultTheme"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ── WebView Session Activities (one per process slot) ──────── -->
+        <!-- CRITICAL: Each runs in its own process so setDataDirectorySuffix -->
+        <!-- can be called once per process with the correct slot suffix. -->
+
+        <activity
+            android:name=".WebViewSessionActivity0"
+            android:process=":wv0"
+            android:theme="@style/FullScreenTheme"
+            android:hardwareAccelerated="true"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".WebViewSessionActivity1"
+            android:process=":wv1"
+            android:theme="@style/FullScreenTheme"
+            android:hardwareAccelerated="true"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".WebViewSessionActivity2"
+            android:process=":wv2"
+            android:theme="@style/FullScreenTheme"
+            android:hardwareAccelerated="true"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".WebViewSessionActivity3"
+            android:process=":wv3"
+            android:theme="@style/FullScreenTheme"
+            android:hardwareAccelerated="true"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".WebViewSessionActivity4"
+            android:process=":wv4"
+            android:theme="@style/FullScreenTheme"
+            android:hardwareAccelerated="true"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:windowSoftInputMode="adjustResize" />
+
+    </application>
+
+</manifest>
